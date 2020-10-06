@@ -1,0 +1,5 @@
+*
+!/.gitignore
+!/generate_project.py
+!/README.md
+!/template/*
