@@ -28,30 +28,18 @@ os.makedirs(root)
 
 # Generate project files
 print("Generating project files...")
-for subdir, dirs, files in os.walk(r'template'):
-
-    # Remove "template" from the subdirectory path
+for subdir, dirs, files in os.walk("template"):
     dest_subdir = subdir.replace("template", "")
-    dest_subdir = subdir.replace(os.sep + os.sep, "")
     dest_subdir = replace_keywords(dest_subdir)
 
     # Process directories
     for dir in dirs:
         dest_dir = replace_keywords(dir)
-        if (dest_subdir):
-            print(root + os.sep + dest_subdir + os.sep + dest_dir)
-            os.makedirs(root + os.sep + dest_subdir + os.sep + dest_dir)
-        else:
-            print(root + os.sep + dest_dir)
-            os.makedirs(root + os.sep + dest_dir)
+        print(root + dest_subdir + os.sep + dest_dir)
+        os.makedirs(root + dest_subdir + os.sep + dest_dir)
 
     # Process files
     for file in files:
         dest_file = replace_keywords(file)
-        if (dest_subdir):
-            print(root + os.sep + dest_subdir + os.sep + dest_file)
-            copy_template_file(subdir + os.sep + file, root + os.sep + dest_subdir + os.sep + dest_file)
-        else:
-            print(root + os.sep + dest_file)
-            copy_template_file(subdir + os.sep + file, root + os.sep + dest_file)
-            
+        print(root + dest_subdir + os.sep + dest_file)
+        copy_template_file(subdir + os.sep + file, root + dest_subdir + os.sep + dest_file)
