@@ -2,7 +2,7 @@ from conans import ConanFile, CMake, tools
 
 class Cpp@Name@(ConanFile):
     author = "TNT Coders <tnt-coders@googlegroups.com>"
-    build_requires = "gtest/1.8.1@bincrafters/stable"
+    build_requires = "catch2/3.0.0@tnt-coders/testing"
     default_options = {"shared": False}
     description = "@description@"
     exports_sources = "CMakeLists.txt", "docs/*", "include/*", "src/*", "test/*"
