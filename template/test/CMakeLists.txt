@@ -10,4 +10,4 @@ target_link_libraries(${PROJECT_NAME}_test
     Catch2::Catch2WithMain
 )
 
-gtest_discover_tests(${PROJECT_NAME}_test)
+catch_discover_tests(${PROJECT_NAME}_test)
