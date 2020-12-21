@@ -6,7 +6,7 @@ class Cpp@Name@(ConanFile):
     default_options = {"shared": False}
     description = "@description@"
     exports_sources = "CMakeLists.txt", "docs/*", "include/*", "src/*", "test/*"
-    generators = "cmake"
+    generators = "cmake", "cmake_paths"
     license = "GNU Lesser General Public License v3.0"
     name = "cpp-@name@"
     options = {"shared": [True, False]}

@@ -1,8 +1,8 @@
 tnt_project_AddLibrary(${PROJECT_NAME}
   TARGET
-    @name@
+    ${PROJECT_NAME}
   SOURCES
     @name@.cpp
 )
 
-target_compile_features(@name@ PUBLIC cxx_std_17)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)

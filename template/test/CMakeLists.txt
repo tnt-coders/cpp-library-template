@@ -1,13 +1,13 @@
 include(Catch)
 
-add_executable(@name@_test
+add_executable(${PROJECT_NAME}_test
     # TODO: <files>
     main.cpp
 )
 
-target_link_libraries(@name@_test
-    @namespace@::@name@
+target_link_libraries(${PROJECT_NAME}_test
+    @namespace@::${PROJECT_NAME}
     Catch2::Catch2WithMain
 )
 
-gtest_discover_tests(@name@_test)
+gtest_discover_tests(${PROJECT_NAME}_test)
