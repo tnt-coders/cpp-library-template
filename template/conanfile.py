@@ -1,19 +1,38 @@
 from conans import ConanFile, CMake, tools
 
 class Cpp@Name@(ConanFile):
-    author = "TNT Coders <tnt-coders@googlegroups.com>"
-    build_requires = "catch2/3.0.0@tnt-coders/stable"
-    default_options = {"shared": False}
-    description = "@description@"
-    exports_sources = "CMakeLists.txt", "docs/*", "include/*", "src/*", "test/*"
-    generators = "cmake", "cmake_paths"
-    license = "GNU Lesser General Public License v3.0"
     name = "@name@"
-    options = {"shared": [True, False]}
-    settings = "os", "compiler", "build_type", "arch"
-    topics = ("@name@")
+    description = "@description@"
+    homepage = "https://tnt-coders.github.io/"
     url = "https://github.com/tnt-coders/cpp-@name@"
-    version = "0.0.0"
+    license = "GNU Lesser General Public License v3.0"
+    author = "TNT Coders <tnt-coders@googlegroups.com>"
+
+    topics = ("@name@")
+
+    settings = ("os", "compiler", "build_type", "arch")
+
+    options = {
+        "shared": [True, False],
+    }
+
+    default_options = {
+        "shared": False,
+    }
+
+
+    build_requires = (
+        "catch2/3.0.0@tnt-coders/stable"
+    )
+
+    exports_sources = ("CMakeLists.txt", "docs/*", "include/*", "src/*", "test/*")
+    
+    generators = ("cmake", "cmake_paths")
+
+    def _configure_cmake(self):
+        cmake = CMake(self)
+        cmake.configure()
+        return cmake
 
     def configure(self):
         tools.check_min_cppstd(self, "17")
@@ -29,8 +48,3 @@ class Cpp@Name@(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
-
-    def _configure_cmake(self):
-        cmake = CMake(self)
-        cmake.configure()
-        return cmake
