@@ -1,2 +1,2 @@
-# @name@
+# cpp-@name@
 @description@
