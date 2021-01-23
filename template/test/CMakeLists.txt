@@ -6,7 +6,7 @@ add_executable(${PROJECT_NAME}_test
 )
 
 target_link_libraries(${PROJECT_NAME}_test
-    @namespace@::${PROJECT_NAME}
+    tnt::${PROJECT_NAME}
     Catch2::Catch2WithMain
 )
 
